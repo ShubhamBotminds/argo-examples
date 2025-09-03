@@ -1,0 +1,68 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-west-2:924789743256:certificate/6b7362e5-a188-4899-a3fc-c22ba65c5d71
+    alb.ingress.kubernetes.io/group.name: botminds-ingress-dev
+    alb.ingress.kubernetes.io/healthcheck-path: /profile/login
+    alb.ingress.kubernetes.io/healthcheck-port: "80"
+    alb.ingress.kubernetes.io/inbound-cidrs: 10.0.0.0/8,100.0.0.0/8
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/load-balancer-attributes: access_logs.s3.enabled=true,access_logs.s3.prefix=k8s-int-dev,access_logs.s3.bucket=tiaa-audit-prod-uw2-elb-logging,idle_timeout.timeout_seconds=300
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-2016-08
+    alb.ingress.kubernetes.io/subnets: subnet-0b2620e2fe2c050ce,subnet-0505ee1bd2e439492,subnet-026d59a03c053a96a
+    alb.ingress.kubernetes.io/success-codes: 200-301
+    alb.ingress.kubernetes.io/tags: AppID=A1907254,Environment=DV,Name=Botminds
+    alb.ingress.kubernetes.io/target-type: ip
+  finalizers:
+  - group.ingress.k8s.aws/botminds-ingress-dev
+  labels:
+    app.kubernetes.io/part-of: botminds
+    app.kubernetes.io/version: 24.2.13_55781
+    app_cmdb_id: A1907254
+    argocd.argoproj.io/instance: e2idw-gcst-legal-risk-comp-dev-botmind-container
+    container_name: botminds
+  name: botminds-combined-ingress
+  namespace: gcst-legal-risk-comp-dev
+spec:
+  ingressClassName: alb
+  rules:
+  # Rules for container-name-namespace host (from 1.yaml + template + opensearch)
+  - host: botminds-open-gcst-legal-risk-comp-dev.eks-west-1.k8s-int-dev.aws2.tiaa-cref.org
+    http:
+      paths:
+      # New API path rule - matches /a/webapi and everything after it
+      - path: /a/webapi
+        pathType: Prefix
+        backend:
+          service:
+            name: bot-live-web
+            port:
+              number: 80      
+      - path: /a/os
+        pathType: Prefix
+        backend:
+          service:
+            name: opensearch-cluster-client 
+            port:
+              number: 9200 
+      - path: /a/chatllm
+        pathType: Prefix
+        backend:
+          service:
+            name: live-chatllm
+            port:
+              number: 9000                 
+      # Original services from 1.yaml 
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: live-chatllm
+            port:
+              number: 9000
+
+
+    
