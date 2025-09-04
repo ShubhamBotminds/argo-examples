@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Values.antelopeCusomtApi.namespace }}
+  name: antelope-cusomt-api
+  labels:
+    environment: live      
+  name: antelope-cusomt-api
+  annotations:
+    "helm.sh/hook-weight": "6"
+    sidecar.istio.io/inject: "false"  
+spec:
+  replicas: {{ .Values.antelopeCusomtApi.replicas }}
+  selector:
+    matchLabels:
+      app: antelope-cusomt-api
+    spec:
+      containers:
+      - command:
+        - yarn
+        - start:prod:antelope-apis
+        env:
+        - name: OpenMongoDb
+          value: "null"
+        - name: AzureWebJobsStorage
+          value: "null"
+        - name: JupiterStorage
+          value: "null"
+        - name: AntelopeBotmindsStorage
+          value: "null"
+        - name: AntelopeStorage
+          value: "null"
+        - name: client
+          value: {{ quote .Values.antelopeCusomtApi.env.client }}
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        image: {{ .Values.global.image.registry }}:{{ .Values.antelopeCusomtApi.image }}
+        name: antelope-cusomt-api
+        ports:
+        - containerPort: 3000
+        resources: {{- toYaml .Values.antelopeCusomtApi.resources | nindent
+          10 }}
+        volumeMounts:
+        - mountPath: /app/logs
+          name: logvolume
+      imagePullSecrets:
+      - name: {{ .Values.global.image.pullSecrets | first }}
+      serviceAccountName: a1907254
