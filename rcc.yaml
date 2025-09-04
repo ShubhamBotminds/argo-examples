@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Values.Rccagent.namespace }}
+  labels:
+    environment: live      
+  name: live-rccagent
+  annotations:
+    "helm.sh/hook-weight": "6"
+    sidecar.istio.io/inject: "false"  
+spec:
+  replicas: {{ .Values.Rccagent.replicas }}
+  selector:
+    matchLabels:
+      app: live-rccagent
+    spec:
+      containers:
+      - args: {{- toYaml .Values.Rccagent.args | nindent 8 }}
+        command:
+        - python
+        env:
+        - name: ENV
+          value: {{ quote .Values.Rccagent.env.env }}
+        - name: MY_NODE_NAME
+          value: ""
+        - name: MY_POD_NAME
+          value: ""
+        - name: MY_POD_NAMESPACE
+          value: ""
+        - name: MY_POD_IP
+          value: ""
+        - name: MY_POD_SERVICE_ACCOUNT
+          value: ""
+        - name: MY_MEM_LIMIT
+          value: ""
+        - name: STORAGE_NAME
+          value: ""
+        - name: STORAGE_KEY
+          value: ""
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        image: "{{ .Values.global.image.registry }}:{{ .Values.Rccagent.image }}"
+        name: live-rccagent
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources: {{- toYaml .Values.Rccagent.resources | nindent 10
+          }}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      imagePullSecrets:
+      - name: {{ .Values.global.image.pullSecrets | first }}
