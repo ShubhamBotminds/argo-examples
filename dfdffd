@@ -1,0 +1,59 @@
+{
+    "index": "auditlog-index",
+    "shard": 0,
+    "primary": false,
+    "current_state": "unassigned",
+    "unassigned_info": {
+        "reason": "INDEX_CREATED",
+        "at": "2025-09-07T17:53:13.533Z",
+        "last_allocation_status": "no_attempt"
+    },
+    "can_allocate": "no",
+    "allocate_explanation": "cannot allocate because allocation is not permitted to any of the nodes",
+    "node_allocation_decisions": [
+        {
+            "node_id": "MGNT5a-pS92js5rwNsrVaw",
+            "node_name": "opensearch-cluster-data-0",
+            "transport_address": "100.113.23.98:9300",
+            "node_attributes": {
+                "shard_indexing_pressure_enabled": "true"
+            },
+            "node_decision": "no",
+            "weight_ranking": 1,
+            "deciders": [
+                {
+                    "decider": "replica_after_primary_active",
+                    "decision": "NO",
+                    "explanation": "primary shard for this replica is not yet active"
+                },
+                {
+                    "decider": "throttling",
+                    "decision": "NO",
+                    "explanation": "primary shard for this replica is not yet active"
+                }
+            ]
+        },
+        {
+            "node_id": "2BoMVtRDTEmGEq0hj7Ntcw",
+            "node_name": "opensearch-cluster-data-1",
+            "transport_address": "100.113.33.196:9300",
+            "node_attributes": {
+                "shard_indexing_pressure_enabled": "true"
+            },
+            "node_decision": "no",
+            "weight_ranking": 2,
+            "deciders": [
+                {
+                    "decider": "replica_after_primary_active",
+                    "decision": "NO",
+                    "explanation": "primary shard for this replica is not yet active"
+                },
+                {
+                    "decider": "throttling",
+                    "decision": "NO",
+                    "explanation": "primary shard for this replica is not yet active"
+                }
+            ]
+        }
+    ]
+}
