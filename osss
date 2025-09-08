@@ -1,0 +1,13 @@
+{
+    "error": {
+        "root_cause": [
+            {
+                "type": "x_content_parse_exception",
+                "reason": "[2:3] [cluster/allocation/explain] unknown field [number_of_replicas]"
+            }
+        ],
+        "type": "x_content_parse_exception",
+        "reason": "[2:3] [cluster/allocation/explain] unknown field [number_of_replicas]"
+    },
+    "status": 400
+}
