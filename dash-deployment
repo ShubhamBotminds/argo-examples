@@ -1,0 +1,306 @@
+# Copyright OpenSearch Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+# Default values for opensearch-dashboards.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+opensearchHosts: "https://opensearch-cluster-master:9200"
+replicaCount: 1
+
+image:
+  repository: "openshift-docker.artifactory.techopscloud.com/vendor-image/lrc---legal/tiaa/opensearch-dashboards-d29"
+  tag: ""
+  pullPolicy: "IfNotPresent"
+
+imagePullSecret:
+  name: cpm-docker-secret
+  namespace: gcst-legal-risk-comp-dev
+  dockerConfigJson: eyJhdXRocyI6eyIyMTExMjUzNzkwMjQuZGtyLmVjci51cy1lYXN0LTEuYW1hem9uYXdzLmNvbS90aWFhZWNyIjp7InVzZXJuYW1lIjoiQVdTIiwicGFzc3dvcmQiOiJleUp3WVhsc2IyRmtJam9pZG1jMWQwOXZUM1pwTUc5MGVrbFRSWGh2VVU1MVYyTjBaRUZsYVZCaU16aE5aV1JpVVRsdVlWTjZhQ3Q0ZGxNd1RHdHJTMWRYVjFSblFXeHNhbWhUVGt4dVUwdFJaMHR3WW1SbGJHTlNPRkZYZFhGTUszUnNVSE15Y3lzeU9VVm5aU3RyTm5oclNqaENVa05WY2t4SWNFZHNhMGM0ZWtjdlZreDFNR3RSUkhsTlVtSmtaWEpKVjA5VkswaERhVTFRTkdkSlNsRkVRV2h5Y0hSRmVubE1OVEExYVVsUFNEQXliVTU1YW5OamIzcFNUVkpuYkRkSmFHOXJTbkZ3VjNGRU1rNXdNbGxDY1dONFdUQkVSVUpxTXpSWlIzSlJkelZYYlRkSEx5dFJOa3BIZG1KRFkzcGlPRmd6TVZGV09FMHZNMHBvUVZwcWMxZEZkbTVIUjJSTWFuTnplazVsUzBGeWFFWjFXbXhGWVU5V1dqaExTV015Yld4UlQyaHlZMlF4TUM5cmJEbHplRk5pYlZSQ2NYWmFZamczYkU1QlVWTjNTV1pNU2pCd1IwUk9WRkoyTVZoa2IyVXZTa2hwU1hwS2RtMUxhVTQxVjI0M2RsVXhSbk5JTmpNMlRqTllNRlJqT1dSeEsyWm5VVmRsVjBsVFozZG9ZVzkxU1hZdlNWaGhORUoxVm0xNVpWQk5hRVpVU21GcFFWcExXSEZETWpWeFFVMVdOMVkxWWprMVUyUlZiMGhpTkZkSVV6SlpXRTVhVjFKa0swZDNRMWRUWlhOc1NESkhjVWg0ZGtkcldHZzRPRmxtWlVSWlZrOW1WU3N2UVRKd01URkdaME55TjNZck4wOTNNbFJ3VkZsUFpWZDBabEJyUWxwYVZVaDNNbWhLWVhOR1RWSlhUVTR3TjFWelprWTFOMHhOU0U0eWFreHVVMG80ZWxWM04zcFRSa1pIYm14VFRqbFJXRVl4U0dGNWJXdFJaSEZ3WjNoM1lUaE5abFZhZUhGU1ZsVXZSbFJSUVZaRU9XVnBUR0pqTm0wMVRVSkJNVWxDTDNGQmVIZG5VbmxpZGtocE5FbFJWa0pSVUV0U05VeHhkMUJSTlVWa1ZuQnBMMGxUU1ZsT0wzWkxUbUk0YVRoNVlsTXdURk53VFdocmNXeHpia1oyVDFKNE1XWXZlVTlWTHpKNlZTdE1iazRyYmpncmRITkNZa1JJVGs1blRqSnFWalV2V2k5bWVUY3pNblJvVlZGRlltSjNjMDluYmtjMVlrcGxaMlpCUlNzcmVHbFhhamxRV1dNNFFrVllTekF5VFZCeGFGUk5ZbFpJUmxSWU1VWjBaVWRNTUVOeE1VZHZUWEpSV21odEwxRk1Oa1JvYVZkQlprVmFaSFYzYWtodVVYSlFNVVl3V1hwdVRFZFJLMFJuVGxFeE1uQlpURkJITldGNU5FMVZkamxKYkM5cGRsSjVMMUpRVkRjM2NtWmtRM05PUm5WRGFETjFNakIwVm1SVFJFRkdOblU1WlZaU09YbFVWVmdyWmtOUk9GUllSVWQyVTNGelNISndWeXQwYVhoTFdETTVjekZ6YUdwamFXWjJVRms0YjNNMmRHdDJNM0F3YkcxamVtWnJWSFF6TjJKRFNXTlBNSFpNT1dST1JVUm9OemRRY1daSmJEaHpaa2QxUTBWTVlqVm1ablZJV213eGNrY3JkRTUwV21STGIwWkVMMXBvWW10VmNYSm9LMDg0VjFoV1NIUTJlRkJQTUU5TlZrbEVZVFZUU1ZKVFp6ZHhZMWdyWW5oVU1qQm9Xa3BWYms5M0lpd2laR0YwWVd0bGVTSTZJa0ZSUlVKQlNHaDNiVEJaWVVsVFNtVlNkRXB0Tlc0eFJ6WjFjV1ZsYTFoMWIxaFlVR1UxVlVaalpUbFNjVGd2TVRSM1FVRkJTRFIzWmtGWlNrdHZXa2xvZG1OT1FWRmpSMjlIT0hkaVVVbENRVVJDYjBKbmEzRm9hMmxIT1hjd1FrSjNSWGRJWjFsS1dVbGFTVUZYVlVSQ1FVVjFUVUpGUlVSTFp6QlVjVGRPYW0xVWVHb3dlVXBKWjBsQ1JVbEJOM1psU0RKYVZtcERkRXN3VTFWc1V6VlZXV2t3VkVWdFl5OXRZWHBzY1dwaVprMXdXbXRZYkV3eWRXb3dhalpaSzBFemRqbHlXakJYTTB3ekwyZGxPRFJCYmtwbVNrVTJUVWxoUzNGWVlsRTlJaXdpZG1WeWMybHZiaUk2SWpJaUxDSjBlWEJsSWpvaVJFRlVRVjlMUlZraUxDSmxlSEJwY21GMGFXOXVJam94TnpRNU56VTFOVFExZlE9PSIsImF1dGgiOiJRVmRUT21WNVNuZFpXR3h6WWpKR2EwbHFiMmxrYldNeFpEQTVkbFF6V25CTlJ6a3daV3RzVkZKWWFIWlZWVFV4VmpKT01GcEZSbXhoVmtKcFRYcG9UbHBYVW1sVlZHeDFXVlpPTm1GRGREUmtiRTEzVkVkMGNsTXhaRmhXTVZKdVVWZDRjMkZ0YUZSVWEzaDFWVEIwVWxvd2RIZFpiVkpzWWtkT1UwOUdSbGhrV0VaTlN6TlNjMVZJVFhsamVYTjVUMVZXYmxwVGRISk9ibWh5VTJwb1ExVnJUbFpqYTNoSlkwVmtjMkV3WXpSbGEyTjJWbXQ0TVUxSGRGSlNTR3hPVlcxS2ExcFlTa3BXTURsV1N6Qm9SR0ZWTVZGT1IyUktVMnhHUlZGWGFIbGpTRkpHWlc1c1RVNVVRVEZoVld4UVUwUkJlV0pWTlRWaGJrNXFZak53VTFSV1NtNWlSR1JLWVVjNWNsTnVSbmRXTTBaRlRXczFkMDFzYkVOalYwNDBWMVJDUlZKVlNuRk5lbEphVWpOS1VtUjZWbGhpVkdSSVRIbDBVazVyY0Voa2JVcEVXVE53YVU5R1ozcE5Wa1pYVDBVd2RrMHdjRzlSVm5CeFl6RmtSbVJ0TlVoU01sSk5ZVzVPZW1Wck5XeFRNRVo1WVVWYU1WZHRlRVpaVlRsWFYycG9URk5YVFhsaVYzaFNWREpvZVZreVVYaE5Remx5WWtSc2VtVkdUbWxpVmxKRFkxaGFZVmxxWnpOaVJUVkNWVlpPTTFOWFdrMVRha0ozVWpCU1QxWkdTakpOVm1ocllqSlZkbE5yYUhCVFdIQkxaRzB4VEdGVk5ERldNalF6Wkd4VmVGSnVUa2xPYWsweVZHcE9XVTFHVW1wUFYxSjRTekphYmxWV1pHeFdNR3hVV2pOa2IxbFhPVEZUV0ZsMlUxWm9hRTVGU2pGV2JURTFXbFpDVG1GRldsVlRiVVp3VVZad1RGZElSa1JOYWxaNFVWVXhWMDR4V1RGWmFtc3hWVEpTVm1Jd2FHbE9SbVJKVlhwS1dsZEZOV0ZXTVVwclN6QmtNMUV4WkZSYVdFNXpVMFJLU0dOVmFEUmthMlJ5VjBkbk5FOUdiRzFhVlZKYVZtczViVlpUYzNaUlZFcDNUVlJHUjFvd1RubE9NMWx5VGpBNU0wMXNVbmRXUm14UVdsWmtNRnBzUW5KUmJIQmhWbFZvTTAxdGFFdFpXRTVIVkZaS1dGUlZOSGRPTVZaNldtdFpNVTR3ZUU1VFJUUjVZV3Q0ZFZVd2J6UmxiRll6VGpOd1ZGSnJXa2hpYlhoVVZHcHNVbGRGV1hoVFIwWTFZbGQwVWxwSVJuZGFNMmd6V1ZSb1RscHNWbUZsU0VaVFZteFZkbEpzVWxKUlZscEZUMWRXY0ZSSFNtcE9iVEF4VkZWS1FrMVZiRU5NTTBaQ1pVaGtibFZ1Ykdsa2EyaHdUa1ZzVWxaclNsSlZSWFJUVGxWNGVHUXhRbEpPVlZaclZtNUNjRXd3YkZSVFZteFBURE5hVEZSdFNUUmhWR2cxV1d4TmQxUkdUbmRVVjJoeVkxZDRlbUpyV2pKVU1VbzBUVmRaZG1WVk9WWk1la28yVmxOMFRXSnJOSEppYW1keVpFaE9RMWxyVWtsVWF6VnVWR3BLY1ZacVZYWlhhVGx0WlZSamVrMXVVbTlXVmtaR1dXMUtNMk13T1c1aWEyTXhXV3R3YkZveVdrSlNVM055WlVkc1dHRnFiRkZYVjAwMFVXdFdXVk42UVhsVVZrSjRZVVpTVGxsc1drbFNiRkpaVFZWYU1GcFZaRTFOUlU1NFRWVmtkbFJZU2xKWGJXaDBUREZHVFU1clVtOWhWbVJDV210V1lWcElWak5oYTJoMVZWaEtVVTFWV1hkWFdIQjFWRVZrVWtzd1VtNVViRVY0VFc1Q1dsUkdRa2hPVjBZMVRrVXhWbVJxYkVwaVF6bHdaR3hLTlV3eFNsRldSR016WTIxYWExRXpUazlTYmxaRVlVUk9NVTFxUWpCV2JWSlVVa1ZHUjA1dVZUVmFWbHBUVDFoc1ZWWldaM0phYTA1U1QwWlNXVkpWWkRKVk0wWjZVMGhLZDFaNWREQmhXR2hNVjBSTk5XTjZSbnBoUjNCcVlWZGFNbFZHYXpSaU0wMHlaRWQwTWswelFYZGlSekZxWlcxYWNsWklVWHBPTWtwRVUxZE9VRTFJV2sxUFYxSlBVbFZTYjA1NlpGRmpWMXBLWWtSb2VscHJaREZSTUZaTldXcFdiVnB1VmtsWGJYZDRZMnRqY21SRk5UQlhiVkpNWWpCYVJVd3hjRzlaYlhSV1kxaEtiMHN3T0RSV01XaFhVMGhSTW1WR1FsQk5SVGxPVm10c1JWbFVWbFJUVmtwVVducGtlRmt4WjNKWmJtaFZUV3BDYjFkcmNGWmlhemt6U1dsM2FWcEhSakJaVjNSc1pWTkpOa2xyUmxKU1ZVcENVMGRvTTJKVVFscFpWV3hVVTIxV1UyUkZjSFJPVnpSNFVucGFNV05YVm14aE1XZ3hZakZvV1ZWSFZURldWVnBxV2xSc1UyTlVaM1pOVkZJelVWVkdRbE5FVWpOYWEwWmFVMnQwZGxkcmJHOWtiVTVQVVZaR2FsSXlPVWhQU0dScFZWVnNRMUZWVWtOaU1FcHVZVE5HYjJFeWJFaFBXR04zVVd0S00xSllaRWxhTVd4TFYxVnNZVk5WUmxoV1ZWSkRVVlZXTVZSVlNrWlNWVkpNV25wQ1ZXTlVaRTloYlRGVlpVZHZkMlZWY0VwYU1HeERVbFZzUWs0eldteFRSRXBoVm0xd1JHUkZjM2RWTVZaelZYcFdWbGRYYTNkV1JWWjBXWGs1ZEZsWWNITmpWM0JwV21zeGQxZHRkRmxpUlhkNVpGZHZkMkZxV2xwTE1FVjZaR3BzZVZkcVFsaE5NSGQ2VERKa2JFOUVVa0ppYTNCdFUydFZNbFJWYkdoVE0wWlpXV3hGT1VscGQybGtiVlo1WXpKc2RtSnBTVFpKYWtscFRFTktNR1ZZUW14SmFtOXBVa1ZHVlZGV09VeFNWbXRwVEVOS2JHVklRbkJqYlVZd1lWYzVkVWxxYjNoT2VsRTFUbnBWTVU1VVVURm1VVDA5In19fQ==
+
+startupProbe:
+  tcpSocket:
+    port: 5601
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 20
+  successThreshold: 1
+  initialDelaySeconds: 10
+
+livenessProbe:
+  tcpSocket:
+    port: 5601
+  periodSeconds: 20
+  timeoutSeconds: 5
+  failureThreshold: 10
+  successThreshold: 1
+  initialDelaySeconds: 10
+
+readinessProbe:
+  tcpSocket:
+    port: 5601
+  periodSeconds: 20
+  timeoutSeconds: 5
+  failureThreshold: 10
+  successThreshold: 1
+  initialDelaySeconds: 10
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+rbac:
+  create: false
+
+# A list of secrets and their paths to mount inside the pod
+# This is useful for mounting certificates for security and for mounting
+# the X-Pack license
+secretMounts: []
+#  - name: certs
+#    secretName: dashboard-certs
+#    path: /usr/share/dashboards/certs
+
+podAnnotations: {}
+
+# Deployment annotations
+dashboardAnnotations: {}
+
+extraEnvs: []
+#  - name: "NODE_OPTIONS"
+#    value: "--max-old-space-size=1800"
+
+envFrom: []
+
+extraVolumes: []
+  # - name: extras
+  #   emptyDir: {}
+
+extraVolumeMounts: []
+  # - name: extras
+  #   mountPath: /usr/share/extras
+  #   readOnly: true
+
+extraInitContainers: ""
+
+extraContainers: ""
+
+podSecurityContext: {}
+
+securityContext:
+  capabilities:
+    drop:
+      - ALL
+  # readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+
+config: {}
+  # Default OpenSearch Dashboards configuration from docker image of Dashboards
+
+  #  opensearch_dashboards.yml: |
+  #   server:
+  #     name: dashboards
+  #     host: "{{ .Values.serverHost }}"
+
+  #  opensearch_dashboards.yml:
+  #   server:
+  #     name: dashboards
+  #     host: "{{ .Values.serverHost }}"
+
+
+  # Dashboards TLS Config (Ensure the cert files are present before enabling SSL
+  # ssl:
+  #   enabled: true
+  #   key: /usr/share/opensearch-dashboards/certs/dashboards-key.pem
+  #   certificate: /usr/share/opensearch-dashboards/certs/dashboards-crt.pem
+
+  # determines how dashboards will verify certificates (needs to be none for default opensearch certificates to work)
+  # opensearch:
+  #   ssl:
+  #     certificateAuthorities: /usr/share/opensearch-dashboards/certs/dashboards-root-ca.pem
+  #     if utilizing custom CA certs for connection to opensearch, provide the CA here
+
+opensearchDashboardsYml:
+  defaultMode:
+  # value should be 0-0777
+
+priorityClassName: ""
+
+opensearchAccount:
+  secret: ""
+  keyPassphrase:
+    enabled: false
+
+labels: {}
+
+hostAliases: []
+# - ip: "127.0.0.1"
+#   hostnames:
+#   - "foo.local"
+#   - "bar.local"
+
+serverHost: "0.0.0.0"
+
+service:
+  type: LoadBalancer
+  # The IP family and IP families options are to set the behaviour in a dual-stack environment
+  # Omitting these values will let the service fall back to whatever the CNI dictates the defaults
+  # should be
+  #
+  # ipFamilyPolicy: SingleStack
+  # ipFamilies:
+  # - IPv4
+  port: 5601
+  metricsPort: 9601
+  loadBalancerIP: ""
+  nodePort: ""
+  labels: {}
+  annotations: 
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+  loadBalancerSourceRanges: []
+  # 0.0.0.0/0
+  httpPortName: http
+  metricsPortName: metrics
+
+ingress:
+  enabled: true
+  # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
+  # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
+  # ingressClassName: nginx
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  labels: {}
+  hosts:
+    - host: botminds-open-gcst-legal-risk-comp-dev.eks-west-1.k8s-int-dev.aws2.tiaa-cref.org
+      paths:
+        - path: /dashboard
+          backend:
+            serviceName: ""
+            servicePort: ""
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "512M"
+  limits:
+    cpu: "100m"
+    memory: "512M"
+
+autoscaling:
+  # This requires metrics server to be installed, to install use kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+  # See https://github.com/kubernetes-sigs/metrics-server
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 10
+  # The legacy `targetCPUUtilizationPercentage` key has been deprecated in favor of `targetCPU`
+  targetCPU: "80"
+  targetMemory: "80"
+
+updateStrategy:
+  type: "Recreate"
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# This is the pod topology spread constraints
+# https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/
+topologySpreadConstraints: []
+
+# -- Array of extra K8s manifests to deploy
+extraObjects: []
+  # - apiVersion: secrets-store.csi.x-k8s.io/v1
+  #   kind: SecretProviderClass
+  #   metadata:
+  #     name: argocd-secrets-store
+  #   spec:
+  #     provider: aws
+  #     parameters:
+  #       objects: |
+  #         - objectName: "argocd"
+  #           objectType: "secretsmanager"
+  #           jmesPath:
+  #               - path: "client_id"
+  #                 objectAlias: "client_id"
+  #               - path: "client_secret"
+  #                 objectAlias: "client_secret"
+  #     secretObjects:
+  #     - data:
+  #       - key: client_id
+  #         objectName: client_id
+  #       - key: client_secret
+  #         objectName: client_secret
+  #       secretName: argocd-secrets-store
+  #       type: Opaque
+  #       labels:
+  #         app.kubernetes.io/part-of: argocd
+  # - |
+  #    apiVersion: policy/v1
+  #    kind: PodDisruptionBudget
+  #    metadata:
+  #      name: {{ template "opensearch-dashboards.fullname" . }}
+  #      labels:
+  #        {{- include "opensearch-dashboards.labels" . | nindent 4 }}
+  #    spec:
+  #      minAvailable: 1
+  #      selector:
+  #        matchLabels:
+#          {{- include "opensearch-dashboards.selectorLabels" . | nindent 6 }}
+
+# pod lifecycle policies as outlined here:
+# https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+lifecycle: {}
+  # preStop:
+  #   exec:
+  #     command: ["/bin/sh", "-c", "echo Hello from the postStart handler > /usr/share/message"]
+  # postStart:
+  #   exec:
+  #     command:
+  #       - bash
+  #       - -c
+  #       - |
+  #         #!/bin/bash
+  #         curl -I "http://admin:admin@127.0.0.1:5601/status -H "kbn-xsrf: true" -H 'kbn-xsrf: true' -H "Content-Type: application/json"
+
+## Enable to add 3rd Party / Custom plugins not offered in the default OpenSearchDashboards image.
+plugins:
+  enabled: false
+  installList: []
+  # - example-fake-plugin-downloadable-url
+  removeList: []
+  # - examplePluginName
+
+# ServiceMonitor Configuration for Prometheus
+# Enabling this option will create a ServiceMonitor resource that allows Prometheus to scrape metrics from the OpenSearch service.
+serviceMonitor:
+  # Set to true to enable the ServiceMonitor resource for OpenSearch Dashboards
+  enabled: false
+
+  # HTTP path where metrics are exposed by OpenSearch Dashboards.
+  # Ensure this path is correctly set in your service.
+  path: /_prometheus/metrics
+
+  # Frequency at which Prometheus will scrape metrics.
+  # Modify as needed for your monitoring requirements.
+  interval: 10s
+
+  # additional labels to be added to the ServiceMonitor
+  # labels:
+  #  k8s.example.com/prometheus: kube-prometheus
+  labels: {}
