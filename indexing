@@ -1,0 +1,735 @@
+{
+    "sub-index": {
+        "mappings": {
+            "properties": {
+                "ActiveTime": {
+                    "type": "long"
+                },
+                "Annotations": {
+                    "type": "text"
+                },
+                "AssignedLabelIdList": {
+                    "type": "keyword"
+                },
+                "AssignedLabelNames": {
+                    "type": "keyword"
+                },
+                "AssignedLearnerIds": {
+                    "type": "keyword"
+                },
+                "AssignedUserEmail": {
+                    "type": "keyword"
+                },
+                "AssignedUserEmailIds": {
+                    "type": "keyword"
+                },
+                "AssignedUserUpdatedBy": {
+                    "type": "keyword"
+                },
+                "CCMail": {
+                    "type": "keyword"
+                },
+                "Category": {
+                    "type": "keyword"
+                },
+                "ChildDocCount": {
+                    "type": "float"
+                },
+                "ChunkDoc": {
+                    "type": "boolean"
+                },
+                "ColumnId": {
+                    "type": "keyword"
+                },
+                "Content": {
+                    "type": "text"
+                },
+                "ContentType": {
+                    "type": "keyword"
+                },
+                "CurrentCheckboxTsv": {
+                    "type": "keyword"
+                },
+                "CurrentLayoutTsv": {
+                    "type": "keyword"
+                },
+                "CurrentOcrTsv": {
+                    "type": "keyword"
+                },
+                "CurrentScoredTsv": {
+                    "type": "keyword"
+                },
+                "DataSheetFinonId": {
+                    "type": "keyword"
+                },
+                "DataSheetId": {
+                    "type": "keyword"
+                },
+                "DateForOrdering": {
+                    "type": "date"
+                },
+                "DerivedContent": {
+                    "type": "keyword"
+                },
+                "DerivedDateContent": {
+                    "type": "date"
+                },
+                "DerivedNumberContent": {
+                    "type": "double"
+                },
+                "DocGroup": {
+                    "type": "keyword"
+                },
+                "DocId": {
+                    "type": "keyword"
+                },
+                "DocSetOrder": {
+                    "type": "float"
+                },
+                "DocTitle": {
+                    "type": "keyword"
+                },
+                "DocType": {
+                    "type": "keyword"
+                },
+                "DocumentSetId": {
+                    "type": "keyword"
+                },
+                "DocumentStageId": {
+                    "type": "keyword"
+                },
+                "DocumentType": {
+                    "type": "keyword"
+                },
+                "DocumentUrl": {
+                    "type": "keyword"
+                },
+                "DynamicLabelsJsonBlob": {
+                    "type": "keyword"
+                },
+                "EmailId": {
+                    "type": "keyword"
+                },
+                "EmailReceivedDate": {
+                    "type": "date"
+                },
+                "EndXpath": {
+                    "type": "keyword"
+                },
+                "EntityId": {
+                    "type": "keyword"
+                },
+                "EntityValueId": {
+                    "type": "keyword"
+                },
+                "ErrorMessage": {
+                    "type": "text"
+                },
+                "ErrorMsg": {
+                    "type": "text"
+                },
+                "FileSize": {
+                    "type": "double"
+                },
+                "FinonId": {
+                    "type": "keyword"
+                },
+                "FolderLevel": {
+                    "type": "long"
+                },
+                "FolderPath": {
+                    "type": "text",
+                    "analyzer": "path_analyzer"
+                },
+                "FolderPathKey": {
+                    "type": "keyword"
+                },
+                "HtmlContent": {
+                    "type": "text"
+                },
+                "Id": {
+                    "type": "keyword"
+                },
+                "ImageInfo": {
+                    "type": "nested",
+                    "properties": {
+                        "ImageHeight": {
+                            "type": "double"
+                        },
+                        "ImageWidth": {
+                            "type": "double"
+                        },
+                        "Xmax": {
+                            "type": "double"
+                        },
+                        "Xmin": {
+                            "type": "double"
+                        },
+                        "Ymax": {
+                            "type": "double"
+                        },
+                        "Ymin": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "ImageText": {
+                    "type": "text"
+                },
+                "Index": {
+                    "type": "float"
+                },
+                "IndexName": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "IsDeleted": {
+                    "type": "boolean"
+                },
+                "IsListingDocument": {
+                    "type": "boolean"
+                },
+                "IsRescoring": {
+                    "type": "boolean"
+                },
+                "IsSystemError": {
+                    "type": "boolean"
+                },
+                "JobId": {
+                    "type": "keyword"
+                },
+                "JupiterUrl": {
+                    "type": "keyword"
+                },
+                "LabelStatusInfo": {
+                    "type": "nested",
+                    "properties": {
+                        "AnnotationsCount": {
+                            "type": "double"
+                        },
+                        "LabelStatus": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "LazyLoadingPossible": {
+                    "type": "boolean"
+                },
+                "LinksInfo": {
+                    "type": "nested",
+                    "properties": {
+                        "Id": {
+                            "type": "keyword"
+                        },
+                        "IsUnique": {
+                            "type": "boolean"
+                        },
+                        "Url": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "MainDocId": {
+                    "type": "keyword"
+                },
+                "MandatoryLabels": {
+                    "properties": {
+                        "Id": {
+                            "type": "keyword"
+                        },
+                        "ObjectIds": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "MyJoinField": {
+                    "type": "join",
+                    "eager_global_ordinals": true,
+                    "relations": {
+                        "Document": [
+                            "VectorDocument",
+                            "DocumentSession",
+                            "Section"
+                        ]
+                    }
+                },
+                "ObjectId": {
+                    "type": "keyword"
+                },
+                "OriginalDocId": {
+                    "type": "keyword"
+                },
+                "OverAllSectionCount": {
+                    "type": "long"
+                },
+                "PageCount": {
+                    "type": "float"
+                },
+                "PageImages": {
+                    "type": "nested",
+                    "properties": {
+                        "PageImage": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "PageThumbnail": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        }
+                    }
+                },
+                "PageNumber": {
+                    "type": "float"
+                },
+                "PageNumberOffset": {
+                    "type": "float"
+                },
+                "ParentUrl": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "PartitionKey": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "PdfVersion": {
+                    "type": "text"
+                },
+                "PrimaryDocument": {
+                    "type": "boolean"
+                },
+                "PrimaryId": {
+                    "type": "keyword"
+                },
+                "ProcessedUrl": {
+                    "type": "keyword"
+                },
+                "RandomNumber": {
+                    "type": "float"
+                },
+                "RelationalEntityDetails": {
+                    "type": "nested",
+                    "properties": {
+                        "EntityId": {
+                            "type": "keyword"
+                        },
+                        "EntityValueId": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "RelationalEntityId": {
+                    "type": "keyword"
+                },
+                "RelationalId": {
+                    "type": "keyword"
+                },
+                "RelativePath": {
+                    "type": "keyword"
+                },
+                "RowId": {
+                    "type": "keyword"
+                },
+                "STPAuditStagesList": {
+                    "type": "keyword"
+                },
+                "ScreenshotBlob": {
+                    "type": "keyword"
+                },
+                "SectionType": {
+                    "type": "keyword"
+                },
+                "SeedPageKind": {
+                    "type": "keyword"
+                },
+                "SeedPagePriority": {
+                    "type": "keyword"
+                },
+                "SeedPageUrl": {
+                    "type": "keyword"
+                },
+                "SegmentedUrl": {
+                    "type": "keyword"
+                },
+                "SessionTime": {
+                    "type": "long"
+                },
+                "StageInfos": {
+                    "type": "nested",
+                    "properties": {
+                        "ChunkDocumentCount": {
+                            "type": "integer"
+                        },
+                        "ErrorMessage": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "ExecutionTime": {
+                            "type": "double"
+                        },
+                        "InnerErrorMessage": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "ProposedExecutionTime": {
+                            "type": "double"
+                        },
+                        "ProposedStageWaitTime": {
+                            "type": "double"
+                        },
+                        "StageName": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "StartTime": {
+                            "type": "date"
+                        },
+                        "WaitTime": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "StartXpath": {
+                    "type": "keyword"
+                },
+                "Status": {
+                    "properties": {
+                        "AddSherlock": {
+                            "type": "boolean"
+                        },
+                        "Args": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "ClassName": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "CreateTime": {
+                            "type": "date"
+                        },
+                        "ExKind": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "Extras": {
+                            "properties": {
+                                "CPUUsage": {
+                                    "type": "float"
+                                },
+                                "ManagedMemoryInMb": {
+                                    "type": "float"
+                                },
+                                "MemoryUsageInMb": {
+                                    "type": "float"
+                                },
+                                "TimeTakenToCalculate": {
+                                    "type": "float"
+                                }
+                            }
+                        },
+                        "JobInfo": {
+                            "properties": {
+                                "JobName": {
+                                    "type": "long"
+                                },
+                                "UniqueGuid": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "MethodName": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "Success": {
+                            "type": "boolean"
+                        },
+                        "TimeToCreate": {
+                            "type": "long"
+                        }
+                    }
+                },
+                "SubscriptionId": {
+                    "type": "keyword"
+                },
+                "SuggestedLabelIdList": {
+                    "type": "keyword"
+                },
+                "SuggestedLabelNames": {
+                    "type": "keyword"
+                },
+                "SummaryVersions": {
+                    "type": "keyword"
+                },
+                "TableId": {
+                    "type": "keyword"
+                },
+                "TestingEnv": {
+                    "type": "boolean"
+                },
+                "TimeStamp": {
+                    "type": "keyword"
+                },
+                "TimeTicks": {
+                    "type": "float"
+                },
+                "Timestamp": {
+                    "type": "date"
+                },
+                "Title": {
+                    "type": "text"
+                },
+                "TitleCS": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "TotalChildDocCount": {
+                    "type": "float"
+                },
+                "Type": {
+                    "type": "keyword"
+                },
+                "UploadedByUserEmail": {
+                    "type": "keyword"
+                },
+                "UploadedByUserId": {
+                    "type": "keyword"
+                },
+                "Url": {
+                    "type": "keyword"
+                },
+                "WordCount": {
+                    "type": "float"
+                },
+                "WorkflowHistory": {
+                    "type": "nested",
+                    "properties": {
+                        "FromAssignedUser": {
+                            "type": "keyword"
+                        },
+                        "FromWorkflowStageId": {
+                            "type": "keyword"
+                        },
+                        "ToAssignedUser": {
+                            "type": "keyword"
+                        },
+                        "ToWorkflowStageId": {
+                            "type": "keyword"
+                        },
+                        "Type": {
+                            "type": "keyword"
+                        },
+                        "UpdatedBy": {
+                            "type": "keyword"
+                        },
+                        "UpdatedOn": {
+                            "type": "date"
+                        }
+                    }
+                },
+                "WorkflowStageId": {
+                    "type": "keyword"
+                },
+                "WorkflowStageIds": {
+                    "type": "keyword"
+                },
+                "WorkflowStageUpdatedBy": {
+                    "type": "keyword"
+                },
+                "WorkflowStagesHistory": {
+                    "type": "keyword"
+                },
+                "_ts": {
+                    "type": "long"
+                },
+                "denorm_extraction_value": {
+                    "type": "long"
+                },
+                "document_text": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "domain_name": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "domain_name_vector_field": {
+                    "type": "float"
+                },
+                "domains": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "expanded_text": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "expanded_text_vector_field": {
+                    "type": "float"
+                },
+                "metadata": {
+                    "properties": {
+                        "chunk_index": {
+                            "type": "long"
+                        },
+                        "chunk_type": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "doc_id": {
+                            "type": "keyword"
+                        },
+                        "doc_title": {
+                            "type": "keyword"
+                        },
+                        "doc_type": {
+                            "type": "keyword"
+                        },
+                        "document_type": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "finon_id": {
+                            "type": "keyword"
+                        },
+                        "meta_info": {
+                            "type": "object"
+                        },
+                        "model_id": {
+                            "type": "keyword"
+                        },
+                        "page_number": {
+                            "type": "long"
+                        },
+                        "subscription_id": {
+                            "type": "keyword"
+                        },
+                        "summary": {
+                            "properties": {
+                                "artifact_id": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "url": {
+                            "type": "keyword"
+                        },
+                        "urlText": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "text": {
+                    "type": "text"
+                }
+            }
+        }
+    }
+}
